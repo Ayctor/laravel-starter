@@ -1,0 +1,36 @@
+image: thecodingmachine/php:7.4-v3-cli-node12
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+          - npm
+          - composer
+        script:
+          - PHP_EXTENSIONS="exif gd imagick intl sqlite3 pdo_sqlite"
+          - sudo apt-get update && sudo apt-get install -y mysql-client
+          - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_PASSWORD}
+          - composer install
+          - npm ci
+          - npm run dev
+          - ln -f -s .env.pipelines .env
+          - php artisan key:generate
+          - php artisan migrate
+          - php artisan serve &
+          - sleep 5
+          - ./vendor/bin/phpunit --log-junit ./test-reports/junit.xml
+        services:
+          - mysql
+
+definitions:
+  caches:
+    npm: $HOME/.npm
+  services:
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_DATABASE: 'pipelines'
+        MYSQL_USER: 'pipelines'
+        MYSQL_PASSWORD: 'pipelines'

@@ -78,6 +78,10 @@ class InstallPreset extends Command
 
         foreach ($this->params as $category => $presets) {
             foreach ($presets as $preset) {
+                if (empty($preset)) {
+                    continue;
+                }
+
                 $class = '\Ayctor\LaravelStarter\Presets\\' . ucfirst($category) . '\\' . ucfirst($preset);
                 $class::install();
             }
@@ -123,7 +127,7 @@ class InstallPreset extends Command
         foreach ($presets as $key => $preset) {
             $params[$key] = $this->choice(
                 $preset->question,
-                $preset->presets,
+                array_merge([''], $preset->presets),
                 0,
                 null,
                 true
@@ -146,7 +150,9 @@ class InstallPreset extends Command
 
         foreach ($directories as $directory) {
             $key = strtolower(basename($directory));
-            if ($key === 'base') continue;
+            if ($key === 'base') {
+                continue;
+            }
             $files = $filesystem->files($directory);
             $presets[$key] = (object) [
                 'description' => 'Choose the ' . $key . ' system you need',

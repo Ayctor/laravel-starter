@@ -83,6 +83,7 @@ class Ui extends Preset
         );
 
         static::info('Add the svg blade component file');
+        static::ensureDirectoryExists(resource_path('views/components'));
         static::createOrReplaceFile(
             resource_path('views/components/svg.blade.php'),
             __DIR__ . '/../../../stubs/base/svg.blade.php'

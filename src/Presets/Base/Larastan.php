@@ -22,7 +22,7 @@ class Larastan extends Preset
         static::info('Add the phpstan.neon file');
         static::createOrReplaceFile(
             base_path('phpstan.neon'),
-            __DIR__ . '/../../../stubs/base/phpstan.neon'
+            __DIR__ . '/../../stubs/base/phpstan.neon'
         );
     }
 }

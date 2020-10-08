@@ -27,7 +27,7 @@ class Spatiebackup extends Preset
         static::info('Change the configuration file');
         static::createOrReplaceFile(
             config_path('backup.php'),
-            __DIR__ . '/../../../stubs/backup/spatiebackup/backup.php'
+            __DIR__ . '/../../stubs/backup/spatiebackup/backup.php'
         );
     }
 }

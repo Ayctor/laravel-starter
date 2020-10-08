@@ -24,7 +24,7 @@ class Fortify extends Preset
         static::info('Change the fortify service provider');
         static::createOrReplaceFile(
             app_path('Providers/FortifyServiceProvider.php'),
-            __DIR__ . '/../../../stubs/auth/fortify/FortifyServiceProvider.php'
+            __DIR__ . '/../../stubs/auth/fortify/FortifyServiceProvider.php'
         );
 
         static::info('Ensure that the views/auth directory exist');
@@ -33,7 +33,7 @@ class Fortify extends Preset
         static::info('Add auth views');
         static::createOrReplaceDirectory(
             resource_path('views/auth'),
-            __DIR__ . '/../../../stubs/base/auth/fortify/auth'
+            __DIR__ . '/../../stubs/base/auth/fortify/auth'
         );
     }
 }

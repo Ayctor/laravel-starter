@@ -24,25 +24,25 @@ class Sentry extends Preset
         static::info('Change the configuration file');
         static::createOrReplaceFile(
             config_path('sentry.php'),
-            __DIR__ . '/../../../stubs/tracking/sentry/sentry.php'
+            __DIR__ . '/../../stubs/tracking/sentry/sentry.php'
         );
 
         static::info('Change the exceptions handler file');
         static::createOrReplaceFile(
             app_path('Exceptions/Handler.php'),
-            __DIR__ . '/../../../stubs/tracking/sentry/Handler.php'
+            __DIR__ . '/../../stubs/tracking/sentry/Handler.php'
         );
 
         static::info('Change the .env.example file');
         static::appendFile(
             base_path('.env.example'),
-            __DIR__ . '/../../../stubs/tracking/sentry/.env.example'
+            __DIR__ . '/../../stubs/tracking/sentry/.env.example'
         );
 
         static::info('Change the .env file');
         static::appendFile(
             base_path('.env'),
-            __DIR__ . '/../../../stubs/tracking/sentry/.env.example'
+            __DIR__ . '/../../stubs/tracking/sentry/.env.example'
         );
 
         // TODO: add sentry js

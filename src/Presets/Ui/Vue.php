@@ -22,7 +22,7 @@ class Vue extends Preset
         static::info('Change the .eslintrc file');
         static::createOrReplaceFile(
             base_path('.eslintrc'),
-            __DIR__ . '/../../../stubs/ui/vue/.eslintrc'
+            __DIR__ . '/../../stubs/ui/vue/.eslintrc'
         );
 
         static::info('Ensure that the components directory exist');
@@ -31,13 +31,13 @@ class Vue extends Preset
         static::info('Add the example component file');
         static::createOrReplaceFile(
             resource_path('js/components/ExampleComponent.vue'),
-            __DIR__ . '/../../../stubs/ui/vue/ExampleComponent.vue'
+            __DIR__ . '/../../stubs/ui/vue/ExampleComponent.vue'
         );
 
         static::info('Add vue into the bootstrap.js file');
         static::appendFile(
             resource_path('js/bootstrap.js'),
-            __DIR__ . '/../../../stubs/ui/vue/bootstrap.js'
+            __DIR__ . '/../../stubs/ui/vue/bootstrap.js'
         );
     }
 }

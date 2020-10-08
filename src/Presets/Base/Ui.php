@@ -130,7 +130,7 @@ class Ui extends Preset
         static::info('Add requires into the app.js file');
         static::appendFile(
             resource_path('js/app.js'),
-            __DIR__ . '/../../../stubs/ui/vue/app.js'
+            __DIR__ . '/../../../stubs/base/app.js'
         );
     }
 }

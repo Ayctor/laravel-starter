@@ -8,6 +8,7 @@ All notable changes to `LaravelStarter` will be documented in this file.
 
 - Fix bugs graphql preset config
 - Comment graphql lighthouse preset not compatible laravel 8.9 yet
+- Fix default preset choices
 
 ## 1.0.0 - 2020-10-08
 

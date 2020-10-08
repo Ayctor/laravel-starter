@@ -96,6 +96,7 @@ class Ui extends Preset
      */
     protected static function setupSass(): void
     {
+        static::info('');
         static::info('Ensure that the sass directory exist');
         static::ensureDirectoryExists(resource_path('sass'));
 

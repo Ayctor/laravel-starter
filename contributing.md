@@ -12,8 +12,8 @@ If you want to contribute but do not know where to start, this list provides som
 - Setup Sentry preset correctly for js
 - Setup Bugsnag preset correctly for js
 - Setup gitlab pipelines config yml file
-- Setup StyleCI
 - Write tests
+- Setup StyleCI or circleCI or Travis
 - Write other presets classes if needed (ex: swiperjs, glidejs, mapbox, etc.)
 
 ## Pull Requests

@@ -22,7 +22,7 @@ class Phpcs extends Preset
         static::info('Add the php_cs.dist file');
         static::createOrReplaceFile(
             base_path('php_cs.dist'),
-            __DIR__ . '/../../stubs/base/php_cs.dist'
+            __DIR__ . '/../../../stubs/base/php_cs.dist'
         );
     }
 }

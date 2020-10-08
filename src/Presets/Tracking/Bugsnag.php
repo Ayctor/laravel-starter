@@ -23,13 +23,13 @@ class Bugsnag extends Preset
         static::info('Change the .env.example file');
         static::appendFile(
             base_path('.env.example'),
-            __DIR__ . '/../../stubs/tracking/bugsnag/.env.example'
+            __DIR__ . '/../../../stubs/tracking/bugsnag/.env.example'
         );
 
         static::info('Change the .env file');
         static::appendFile(
             base_path('.env'),
-            __DIR__ . '/../../stubs/tracking/bugsnag/.env.example'
+            __DIR__ . '/../../../stubs/tracking/bugsnag/.env.example'
         );
 
         // TODO: add bugsnag js

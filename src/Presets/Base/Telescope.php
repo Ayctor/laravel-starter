@@ -31,7 +31,7 @@ class Telescope extends Preset
         static::info('Change the telescope service provider');
         static::createOrReplaceFile(
             app_path('Providers/AppServiceProvider.php'),
-            __DIR__ . '/../../stubs/base/AppServiceProvider.php'
+            __DIR__ . '/../../../stubs/base/AppServiceProvider.php'
         );
 
         static::info('Ensure that the console directory exist');
@@ -40,7 +40,7 @@ class Telescope extends Preset
         static::info('Change the kernel console file');
         static::createOrReplaceFile(
             app_path('Console/Kernel.php'),
-            __DIR__ . '/../../stubs/base/Kernel.php'
+            __DIR__ . '/../../../stubs/base/Kernel.php'
         );
     }
 }

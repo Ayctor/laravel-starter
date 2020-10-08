@@ -50,19 +50,19 @@ class Ui extends Preset
         static::info('Add .eslintrc file');
         static::createOrReplaceFile(
             base_path('.eslintrc'),
-            __DIR__ . '/../../stubs/base/.eslintrc'
+            __DIR__ . '/../../../stubs/base/.eslintrc'
         );
 
         static::info('Add tailwind.config.js file');
         static::createOrReplaceFile(
             base_path('tailwind.config.js'),
-            __DIR__ . '/../../stubs/base/tailwind.config.js'
+            __DIR__ . '/../../../stubs/base/tailwind.config.js'
         );
 
         static::info('Add webpack.mix.js file');
         static::createOrReplaceFile(
             base_path('webpack.mix.js'),
-            __DIR__ . '/../../stubs/base/webpack.mix.js'
+            __DIR__ . '/../../../stubs/base/webpack.mix.js'
         );
     }
 
@@ -79,13 +79,13 @@ class Ui extends Preset
         static::info('Add the svg.php config file');
         static::createOrReplaceFile(
             config_path('svg.php'),
-            __DIR__ . '/../../stubs/base/svg.php'
+            __DIR__ . '/../../../stubs/base/svg.php'
         );
 
         static::info('Add the svg blade component file');
         static::createOrReplaceFile(
             resource_path('views/components/svg.blade.php'),
-            __DIR__ . '/../../stubs/base/svg.blade.php'
+            __DIR__ . '/../../../stubs/base/svg.blade.php'
         );
     }
 
@@ -105,7 +105,7 @@ class Ui extends Preset
         static::info('Add the app.scss file');
         static::createOrReplaceFile(
             resource_path('sass/app.scss'),
-            __DIR__ . '/../../stubs/base/app.scss'
+            __DIR__ . '/../../../stubs/base/app.scss'
         );
     }
 
@@ -122,13 +122,13 @@ class Ui extends Preset
         static::info('Change the bootstrap.js file');
         static::createOrReplaceFile(
             resource_path('js/bootstrap.js'),
-            __DIR__ . '/../../stubs/base/bootstrap.js'
+            __DIR__ . '/../../../stubs/base/bootstrap.js'
         );
 
         static::info('Add requires into the app.js file');
         static::appendFile(
             resource_path('js/app.js'),
-            __DIR__ . '/../../stubs/ui/vue/app.js'
+            __DIR__ . '/../../../stubs/ui/vue/app.js'
         );
     }
 }

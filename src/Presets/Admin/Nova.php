@@ -49,7 +49,7 @@ class Nova extends Preset
         static::info('Add the activitylog resourcce file');
         static::createOrReplaceFile(
             app_path('Nova/ActivityLog.php'),
-            __DIR__ . '/../../stubs/admin/nova/ActivityLog.php'
+            __DIR__ . '/../../../stubs/admin/nova/ActivityLog.php'
         );
     }
 }

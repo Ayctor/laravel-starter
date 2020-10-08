@@ -44,7 +44,7 @@ class Base extends Preset
         static::info('Change the routes service provider');
         static::createOrReplaceFile(
             app_path('Providers/RouteServiceProvider.php'),
-            __DIR__ . '/../../stubs/base/RouteServiceProvider.php'
+            __DIR__ . '/../../../stubs/base/RouteServiceProvider.php'
         );
     }
 
@@ -96,13 +96,13 @@ class Base extends Preset
         static::info('Change the users migration');
         static::createOrReplaceFile(
             database_path('migrations/2014_10_12_000000_create_users_table.php'),
-            __DIR__ . '/../../stubs/base/2014_10_12_000000_create_users_table.php'
+            __DIR__ . '/../../../stubs/base/2014_10_12_000000_create_users_table.php'
         );
 
         static::info('Add the example migration');
         static::createOrReplaceFile(
             database_path('migrations/2014_10_12_000000_create_examples_table.php'),
-            __DIR__ . '/../../stubs/base/2014_10_12_000000_create_examples_table.php'
+            __DIR__ . '/../../../stubs/base/2014_10_12_000000_create_examples_table.php'
         );
     }
 
@@ -120,13 +120,13 @@ class Base extends Preset
         static::info('Change the user model');
         static::createOrReplaceFile(
             app_path('Models/User.php'),
-            __DIR__ . '/../../stubs/base/User.php'
+            __DIR__ . '/../../../stubs/base/User.php'
         );
 
         static::info('Add the example model');
         static::createOrReplaceFile(
             app_path('Models/Example.php'),
-            __DIR__ . '/../../stubs/base/Example.php'
+            __DIR__ . '/../../../stubs/base/Example.php'
         );
     }
 
@@ -143,13 +143,13 @@ class Base extends Preset
         static::info('Change the user factory');
         static::createOrReplaceFile(
             database_path('factories/UserFactory.php'),
-            __DIR__ . '/../../stubs/base/UserFactory.php'
+            __DIR__ . '/../../../stubs/base/UserFactory.php'
         );
 
         static::info('Add the example factory');
         static::createOrReplaceFile(
             database_path('factories/ExampleFactory.php'),
-            __DIR__ . '/../../stubs/base/ExampleFactory.php'
+            __DIR__ . '/../../../stubs/base/ExampleFactory.php'
         );
     }
 
@@ -163,7 +163,7 @@ class Base extends Preset
         static::info('Change the auth service provider');
         static::createOrReplaceFile(
             app_path('Providers/AuthServiceProvider.php'),
-            __DIR__ . '/../../stubs/base/AuthServiceProvider.php'
+            __DIR__ . '/../../../stubs/base/AuthServiceProvider.php'
         );
 
         static::info('Ensure that the policies directory exist');
@@ -172,13 +172,13 @@ class Base extends Preset
         static::info('Add the user policy');
         static::createOrReplaceFile(
             app_path('Policies/UserPolicy.php'),
-            __DIR__ . '/../../stubs/base/UserPolicy.php'
+            __DIR__ . '/../../../stubs/base/UserPolicy.php'
         );
 
         static::info('Add the example policy');
         static::createOrReplaceFile(
             app_path('Policies/ExamplePolicy.php'),
-            __DIR__ . '/../../stubs/base/ExamplePolicy.php'
+            __DIR__ . '/../../../stubs/base/ExamplePolicy.php'
         );
 
         static::info('Ensure that the gates directory exist');
@@ -187,7 +187,7 @@ class Base extends Preset
         static::info('Add the example gates');
         static::createOrReplaceFile(
             app_path('Gates/ExampleGate.php'),
-            __DIR__ . '/../../stubs/base/ExampleGate.php'
+            __DIR__ . '/../../../stubs/base/ExampleGate.php'
         );
     }
 
@@ -201,13 +201,13 @@ class Base extends Preset
         static::info('Add the layouts directory with the default layout');
         static::createOrReplaceDirectory(
             resource_path('views/layouts'),
-            __DIR__ . '/../../stubs/base/layouts'
+            __DIR__ . '/../../../stubs/base/layouts'
         );
 
         static::info('Change the welcome view');
         static::createOrReplaceFile(
             resource_path('views/welcome.blade.php'),
-            __DIR__ . '/../../stubs/base/welcome.blade.php'
+            __DIR__ . '/../../../stubs/base/welcome.blade.php'
         );
     }
 
@@ -221,13 +221,13 @@ class Base extends Preset
         static::info('Add the environment file for bitbucket pipelines');
         static::createOrReplaceFile(
             base_path('.env.pipelines'),
-            __DIR__ . '/../../stubs/base/.env.pipelines'
+            __DIR__ . '/../../../stubs/base/.env.pipelines'
         );
 
         static::info('Add the yaml file for bitbucket pipelines configuration');
         static::createOrReplaceFile(
             base_path('bitbucket-pipelines.yml'),
-            __DIR__ . '/../../stubs/base/bitbucket-pipelines.yml'
+            __DIR__ . '/../../../stubs/base/bitbucket-pipelines.yml'
         );
     }
 
@@ -241,13 +241,13 @@ class Base extends Preset
         static::info('Add the environment file for gitlab pipelines');
         static::createOrReplaceFile(
             base_path('.env.pipelines'),
-            __DIR__ . '/../../stubs/base/.env.pipelines'
+            __DIR__ . '/../../../stubs/base/.env.pipelines'
         );
 
         static::info('Add the yaml file for gitlab pipelines configuration');
         static::createOrReplaceFile(
             base_path('.gitlab-ci.yml'),
-            __DIR__ . '/../../stubs/base/.gitlab-ci.yml'
+            __DIR__ . '/../../../stubs/base/.gitlab-ci.yml'
         );
     }
 }

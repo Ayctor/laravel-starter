@@ -9,7 +9,6 @@ Contributions are accepted via Pull Requests on [Github](https://github.com/ayct
 If you want to contribute but do not know where to start, this list provides some starting points.
 
 - Find a parsley alternative in vanilla js
-- Add graphql preset
 - Setup Sentry preset correctly for js
 - Setup Bugsnag preset correctly for js
 - Setup gitlab pipelines config yml file

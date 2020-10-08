@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Nova\Resources;
+namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Code;

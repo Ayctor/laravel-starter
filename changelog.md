@@ -2,7 +2,14 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
-## 1.0.0 - 2020-10-09
+## 1.0.1 - 2020-10-08
+
+### Added
+
+- Fix bugs graphql preset config
+- Comment graphql lighthouse preset not compatible laravel 8.9 yet
+
+## 1.0.0 - 2020-10-08
 
 ### Added
 
@@ -16,6 +23,7 @@ All notable changes to `LaravelStarter` will be documented in this file.
 - Laravel Nova preset
 - Laravel Fortify preset
 - Laravel Sanctum preset
+- GraphQL preset
 - Bugsnag preset (php side)
 - Sentry preset (php side)
 - Spatie Backup preset

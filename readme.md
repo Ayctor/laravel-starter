@@ -87,7 +87,7 @@ Check the documentation to customize the default setup: [https://spatie.be/docs/
 
 #### GraphQL
 
-???
+Check the documentation to customize the default setup: [https://lighthouse-php.com/master/the-basics/schema.html](https://lighthouse-php.com/master/the-basics/schema.html)
 
 ### UI
 

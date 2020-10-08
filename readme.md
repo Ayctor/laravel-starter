@@ -4,7 +4,9 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+This package help you to easily setup your project.
+
+Take a look at [contributing.md](contributing.md) to see the todo list.
 
 ## Installation
 

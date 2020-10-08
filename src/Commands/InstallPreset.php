@@ -76,6 +76,13 @@ class InstallPreset extends Command
 
         Base::install();
 
+        foreach ($this->params as $category => $presets) {
+            foreach ($presets as $preset) {
+                $class = '\Ayctor\LaravelStarter\Presets\\' . ucfirst($category) . '\\' . ucfirst($preset);
+                $class::install();
+            }
+        }
+
         // TODO: loop on all selected presets and call install() method
 
         $this->line('The installation is complete! Have fun!');

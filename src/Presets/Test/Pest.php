@@ -18,6 +18,7 @@ class Pest extends Preset
 
         static::info('Run composer and artisan commands');
         shell_exec('composer require pestphp/pest --dev -q');
+        shell_exec('composer require pestphp/pest-plugin-laravel --dev -q');
         shell_exec('php artisan pest:install -q');
     }
 }

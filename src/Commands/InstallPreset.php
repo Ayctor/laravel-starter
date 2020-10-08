@@ -83,8 +83,6 @@ class InstallPreset extends Command
             }
         }
 
-        // TODO: loop on all selected presets and call install() method
-
         $this->line('The installation is complete! Have fun!');
     }
 

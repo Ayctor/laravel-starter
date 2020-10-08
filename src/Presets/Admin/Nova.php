@@ -28,7 +28,7 @@ class Nova extends Preset
         ]);
 
         static::info('Run composer update and artisan commands');
-        shell_exec('composer update --q');
+        shell_exec('composer update -q');
         shell_exec('php artisan nova:install -q');
         shell_exec('php artisan migrate -q');
 

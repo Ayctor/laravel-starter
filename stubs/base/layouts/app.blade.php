@@ -25,7 +25,7 @@
 
         <!-- Insert your fonts here -->
 
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('build/app.css') }}" rel="stylesheet">
 
         <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2Csmoothscroll"></script>
 
@@ -54,7 +54,7 @@
             @yield('app')
         </div>
 
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('build/app.js') }}" defer></script>
 
         @stack('scripts')
     </body>

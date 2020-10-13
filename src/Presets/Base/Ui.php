@@ -47,6 +47,12 @@ class Ui extends Preset
      */
     protected static function setupConfig(): void
     {
+        static::info('Add .gitignore file');
+        static::createOrReplaceFile(
+            base_path('.gitignore'),
+            __DIR__ . '/../../../stubs/base/.gitignore'
+        );
+
         static::info('Add .eslintrc file');
         static::createOrReplaceFile(
             base_path('.eslintrc'),
@@ -131,6 +137,24 @@ class Ui extends Preset
         static::appendFile(
             resource_path('js/app.js'),
             __DIR__ . '/../../../stubs/base/app.js'
+        );
+
+        static::info('Add tracking js file');
+        static::appendFile(
+            resource_path('js/tracking.js'),
+            __DIR__ . '/../../../stubs/base/tracking.js'
+        );
+
+        static::info('Add scroll js file');
+        static::appendFile(
+            resource_path('js/scroll.js'),
+            __DIR__ . '/../../../stubs/base/scroll.js'
+        );
+
+        static::info('Add patterns js file');
+        static::appendFile(
+            resource_path('js/patterns.js'),
+            __DIR__ . '/../../../stubs/base/patterns.js'
         );
     }
 }

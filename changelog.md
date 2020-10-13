@@ -2,6 +2,14 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.2 - 2020-10-13
+
+### Added
+
+- Fix bugs preset nova, activitylog, js, horizon
+- Add readme template default
+- Add default .gitignore
+
 ## 1.0.1 - 2020-10-08
 
 ### Added

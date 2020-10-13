@@ -173,6 +173,9 @@ class Preset
         $filesystem = new Filesystem;
         $json = $filesystem->get(base_path('composer.json'));
         $content = json_decode($json, true);
+        if (!isset($content[$index])) {
+            $content[$index] = [];
+        }
         $content[$index] = array_merge($content[$index], $value);
         $filesystem->put(
             base_path('composer.json'),

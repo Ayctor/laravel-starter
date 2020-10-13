@@ -46,7 +46,7 @@ class Nova extends Preset
             "'currency' => 'EUR'"
         );
 
-        static::info('Add the activitylog resourcce file');
+        static::info('Add the activitylog resource file');
         static::createOrReplaceFile(
             app_path('Nova/ActivityLog.php'),
             __DIR__ . '/../../../stubs/admin/nova/ActivityLog.php'

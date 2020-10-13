@@ -15,6 +15,7 @@ class Base extends Preset
     {
         static::info('Starts the basic presets installation');
 
+        static::setupReadme();
         static::setupRoutes();
         static::setupLanguages();
         static::setupMigrations();
@@ -27,11 +28,27 @@ class Base extends Preset
 
         Debugbar::install();
         Telescope::install();
+        Horizon::install();
+        Activitylog::install();
         Larastan::install();
         Phpcs::install();
         Ui::install();
 
         static::info('The basic presets are installed!');
+    }
+
+    /**
+     * Setup readme
+     *
+     * @return void
+     */
+    protected static function setupReadme(): void
+    {
+        static::info('Change the readme file');
+        static::createOrReplaceFile(
+            abase_path('README.md'),
+            __DIR__ . '/../../../stubs/base/readme.md'
+        );
     }
 
     /**

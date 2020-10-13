@@ -87,6 +87,11 @@ class InstallPreset extends Command
             }
         }
 
+        $this->line('NPM install & build');
+
+        shell_exec('npm install -q');
+        shell_exec('npm run dev -q');
+
         $this->line('The installation is complete! Have fun!');
     }
 

@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.3 - 2020-10-13
+
+### Added
+
+- Add npm install and run dev command after presets installation
+
 ## 1.0.2 - 2020-10-13
 
 ### Added

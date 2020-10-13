@@ -6,33 +6,6 @@ use Illuminate\Filesystem\Filesystem;
 
 class Preset
 {
-    protected $name = 'undefined';
-
-    protected $description = 'undefined';
-
-    protected $default = false;
-
-    protected $disable = false;
-
-    protected function category(): string
-    {
-        return (new \ReflectionClass($this))->getShortName();
-    }
-
-    /**
-     * Check all the admin presets registered
-     *
-     * @param string $name
-     *
-     * @return array
-     */
-    public static function presets(string $name = ''): array
-    {
-        return !empty(config('laravel-starter.presets.' . $name))
-            ? array_keys(config('laravel-starter.presets.' . $name))
-            : [];
-    }
-
     /**
      * Show info in command line
      *

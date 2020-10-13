@@ -1,7 +1,7 @@
 {
     "name": "ayctor/laravel-starter",
     "description": "This package help you to easily setup your project.",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "license": "MIT",
     "authors": [
         {

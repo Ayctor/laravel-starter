@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.7 - 2020-10-13
+
+### Added
+
+- Fix bugs eslint on run dev
+
 ## 1.0.6 - 2020-10-13
 
 ### Added

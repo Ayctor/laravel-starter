@@ -1,24 +1,19 @@
 import inViewport from 'in-viewport';
-
 const gaeClicks = document.querySelectorAll('[data-gae-click]');
 const gaeShows = document.querySelectorAll('[data-gae-show]');
 const links = document.querySelectorAll('a');
-
-for (const gaeClick of gaeClicks) {
-    gaeClick.addEventListener('click', gaeClickHandler);
+for (let gaeClick of gaeClicks) {
+    gaeClick.addEventListener('click', gaeClickHandler(gaeClick));
 }
-
-for (const gaeShow of gaeShows) {
+for (let gaeShow of gaeShows) {
     gaeShowHandler(gaeShow);
 }
-
-for (const link of links) {
+for (let link of links) {
     if (link.href.indexOf(location.host) === -1 && link.href.match(/^http/i)) {
         link.addEventListener('click', linkClickHandler);
     }
 }
-
-function gaeClickHandler() {
+function gaeClickHandler(element) {
     window.dataLayer.push({
         'event': 'GAE',
         'gae': {
@@ -29,7 +24,6 @@ function gaeClickHandler() {
         }
     });
 }
-
 function gaeShowHandler(gaeShow) {
     inViewport(gaeShow, function(element) {
         window.dataLayer.push({
@@ -41,7 +35,6 @@ function gaeShowHandler(gaeShow) {
         });
     });
 }
-
 function linkClickHandler(event) {
     window.dataLayer.push({
         'event': 'GAE',

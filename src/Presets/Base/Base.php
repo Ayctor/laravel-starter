@@ -46,7 +46,7 @@ class Base extends Preset
     {
         static::info('Change the readme file');
         static::createOrReplaceFile(
-            abase_path('README.md'),
+            base_path('README.md'),
             __DIR__ . '/../../../stubs/base/readme.md'
         );
     }

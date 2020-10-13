@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.6 - 2020-10-13
+
+### Added
+
+- Fix bug preset readme change default
+
 ## 1.0.5 - 2020-10-13
 
 ### Added

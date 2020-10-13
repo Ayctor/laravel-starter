@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.4 - 2020-10-13
+
+### Added
+
+- Add pretty print to composer.json update methods
+
 ## 1.0.3 - 2020-10-13
 
 ### Added

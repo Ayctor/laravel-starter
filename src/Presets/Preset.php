@@ -129,7 +129,7 @@ class Preset
         $content[$index] = $value;
         $filesystem->put(
             base_path('composer.json'),
-            json_encode($content)
+            json_encode($content, JSON_PRETTY_PRINT)
         );
     }
 
@@ -152,7 +152,7 @@ class Preset
         $content[$index] = array_merge($content[$index], $value);
         $filesystem->put(
             base_path('composer.json'),
-            json_encode($content)
+            json_encode($content, JSON_PRETTY_PRINT)
         );
     }
 }

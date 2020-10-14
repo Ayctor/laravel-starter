@@ -17,7 +17,7 @@ class Horizon extends Preset
         static::info('Starts the horizon preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require laravel/horizon --dev -q');
+        shell_exec('composer require laravel/horizon -q -n');
         shell_exec('php artisan horizon:install -q');
     }
 }

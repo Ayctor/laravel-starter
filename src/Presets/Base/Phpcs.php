@@ -17,7 +17,7 @@ class Phpcs extends Preset
         static::info('Starts the phpcs preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require friendsofphp/php-cs-fixer --dev -q');
+        shell_exec('composer require friendsofphp/php-cs-fixer --dev -q -n');
 
         static::info('Add the php_cs.dist file');
         static::createOrReplaceFile(

@@ -17,7 +17,7 @@ class Larastan extends Preset
         static::info('Starts the larastan preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require nunomaduro/larastan --dev -q');
+        shell_exec('composer require nunomaduro/larastan --dev -q -n');
 
         static::info('Add the phpstan.neon file');
         static::createOrReplaceFile(

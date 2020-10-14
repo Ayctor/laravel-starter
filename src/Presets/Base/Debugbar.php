@@ -17,7 +17,7 @@ class Debugbar extends Preset
         static::info('Starts the debugbar preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require barryvdh/laravel-debugbar --dev -q');
+        shell_exec('composer require barryvdh/laravel-debugbar --dev -q -n');
         shell_exec('php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider" -q');
     }
 }

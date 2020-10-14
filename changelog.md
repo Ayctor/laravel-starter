@@ -2,6 +2,16 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.0.8 - 2020-10-14
+
+### Added
+
+- Fix horizon in require and not in require dev
+- Add UtmMiddleware
+- Add -n option on composer install command (no-interaction)
+- Remove example models, factories, etc.
+- Add opcache route in web.php
+
 ## 1.0.7 - 2020-10-13
 
 ### Added

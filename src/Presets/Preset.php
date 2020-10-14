@@ -27,7 +27,7 @@ class Preset
      *
      * @return void
      */
-    protected static function replaceConfigValue(string $path, string $search, string $replace): void
+    protected static function replaceFileValue(string $path, string $search, string $replace): void
     {
         $filesystem = new Filesystem;
         $content = $filesystem->get($path);

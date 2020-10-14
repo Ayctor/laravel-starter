@@ -17,7 +17,7 @@ class Fortify extends Preset
         static::info('Starts the fortify preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require laravel/fortify -q');
+        shell_exec('composer require laravel/fortify -q -n');
         shell_exec('php artisan vendor:publish --provider="Laravel\\Fortify\\FortifyServiceProvider" -q');
         shell_exec('php artisan migrate -q');
 

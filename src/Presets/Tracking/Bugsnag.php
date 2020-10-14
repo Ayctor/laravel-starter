@@ -17,7 +17,7 @@ class Bugsnag extends Preset
         static::info('Starts the bugsnag preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require bugsnag/bugsnag-laravel -q');
+        shell_exec('composer require bugsnag/bugsnag-laravel -q -n');
         shell_exec('php artisan vendor:publish -q');
 
         static::info('Change the .env.example file');

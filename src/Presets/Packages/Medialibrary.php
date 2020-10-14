@@ -17,7 +17,7 @@ class Medialibrary extends Preset
         static::info('Starts the spatie media library preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require spatie/laravel-medialibrary -q');
+        shell_exec('composer require spatie/laravel-medialibrary -q -n');
         shell_exec('php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations" -q');
         shell_exec('php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config" -q');
         shell_exec('php artisan migrate -q');

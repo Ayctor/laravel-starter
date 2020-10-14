@@ -17,7 +17,7 @@ class Activitylog extends Preset
         static::info('Starts the activitylog preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require spatie/laravel-activitylog -q');
+        shell_exec('composer require spatie/laravel-activitylog -q -n');
         shell_exec('php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="config" -q');
         shell_exec('php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="migrations" -q');
         shell_exec('php artisan migrate -q');

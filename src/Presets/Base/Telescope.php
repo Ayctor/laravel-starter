@@ -17,12 +17,12 @@ class Telescope extends Preset
         static::info('Starts the telescope preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require laravel/telescope -q');
+        shell_exec('composer require laravel/telescope -q -n');
         shell_exec('php artisan telescope:install -q');
         shell_exec('php artisan migrate -q');
 
         static::info('Change the telescope path');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('telescope.php'),
             "'path' => env('TELESCOPE_PATH', 'telescope')",
             "'path' => env('TELESCOPE_PATH', 'tools/telescope')"

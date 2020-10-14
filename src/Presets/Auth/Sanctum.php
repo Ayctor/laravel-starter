@@ -17,7 +17,7 @@ class Sanctum extends Preset
         static::info('Starts the sanctum preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require laravel/sanctum -q');
+        shell_exec('composer require laravel/sanctum -q -n');
         shell_exec('php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" -q');
         shell_exec('php artisan migrate -q');
     }

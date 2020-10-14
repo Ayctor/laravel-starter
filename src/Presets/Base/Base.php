@@ -17,6 +17,7 @@ class Base extends Preset
 
         static::setupReadme();
         static::setupRoutes();
+        static::setupMiddlewares();
         static::setupLanguages();
         static::setupMigrations();
         static::setupModels();
@@ -63,6 +64,27 @@ class Base extends Preset
             app_path('Providers/RouteServiceProvider.php'),
             __DIR__ . '/../../../stubs/base/RouteServiceProvider.php'
         );
+
+        static::info('Add opcache web route');
+        static::appendFile(
+            base_path('routes/web.php'),
+            __DIR__ . '/../../../stubs/base/web.php'
+        );
+    }
+
+    protected static function setupMiddlewares(): void
+    {
+        static::info('Add the UTM middleware');
+        static::createOrReplaceFile(
+            app_path('Http/Middleware/UtmMiddleware.php'),
+            __DIR__ . '/../../../stubs/base/UtmMiddleware.php'
+        );
+        static::replaceFileValue(
+            app_path('Http/Kernel.php'),
+            "\Illuminate\Routing\Middleware\SubstituteBindings::class,",
+            "\Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\UtmMiddleware::class,"
+        );
     }
 
     /**
@@ -73,21 +95,21 @@ class Base extends Preset
     protected static function setupLanguages(): void
     {
         static::info('Change the timezone');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('app.php'),
             "'timezone' => 'UTC'",
             "'timezone' => 'Europe/Paris'"
         );
 
         static::info('Change the locale');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('app.php'),
             "'locale' => 'en_US'",
             "'locale' => 'fr'"
         );
 
         static::info('Change the faker locale');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('app.php'),
             "'faker_locale' => 'en_US'",
             "'faker_locale' => 'fr'"
@@ -116,11 +138,11 @@ class Base extends Preset
             __DIR__ . '/../../../stubs/base/2014_10_12_000000_create_users_table.php'
         );
 
-        static::info('Add the example migration');
-        static::createOrReplaceFile(
-            database_path('migrations/2014_10_12_000000_create_examples_table.php'),
-            __DIR__ . '/../../../stubs/base/2014_10_12_000000_create_examples_table.php'
-        );
+        //static::info('Add the example migration');
+        //static::createOrReplaceFile(
+        //    database_path('migrations/2014_10_12_000000_create_examples_table.php'),
+        //    __DIR__ . '/../../../stubs/base/2014_10_12_000000_create_examples_table.php'
+        //);
     }
 
     /**
@@ -140,11 +162,11 @@ class Base extends Preset
             __DIR__ . '/../../../stubs/base/User.php'
         );
 
-        static::info('Add the example model');
-        static::createOrReplaceFile(
-            app_path('Models/Example.php'),
-            __DIR__ . '/../../../stubs/base/Example.php'
-        );
+        //static::info('Add the example model');
+        //static::createOrReplaceFile(
+        //    app_path('Models/Example.php'),
+        //    __DIR__ . '/../../../stubs/base/Example.php'
+        //);
     }
 
     /**
@@ -163,11 +185,11 @@ class Base extends Preset
             __DIR__ . '/../../../stubs/base/UserFactory.php'
         );
 
-        static::info('Add the example factory');
-        static::createOrReplaceFile(
-            database_path('factories/ExampleFactory.php'),
-            __DIR__ . '/../../../stubs/base/ExampleFactory.php'
-        );
+        //static::info('Add the example factory');
+        //static::createOrReplaceFile(
+        //    database_path('factories/ExampleFactory.php'),
+        //    __DIR__ . '/../../../stubs/base/ExampleFactory.php'
+        //);
     }
 
     /**
@@ -192,20 +214,20 @@ class Base extends Preset
             __DIR__ . '/../../../stubs/base/UserPolicy.php'
         );
 
-        static::info('Add the example policy');
-        static::createOrReplaceFile(
-            app_path('Policies/ExamplePolicy.php'),
-            __DIR__ . '/../../../stubs/base/ExamplePolicy.php'
-        );
+        //static::info('Add the example policy');
+        //static::createOrReplaceFile(
+        //    app_path('Policies/ExamplePolicy.php'),
+        //    __DIR__ . '/../../../stubs/base/ExamplePolicy.php'
+        //);
 
         static::info('Ensure that the gates directory exist');
         static::ensureDirectoryExists(app_path('Gates'));
 
-        static::info('Add the example gates');
-        static::createOrReplaceFile(
-            app_path('Gates/ExampleGate.php'),
-            __DIR__ . '/../../../stubs/base/ExampleGate.php'
-        );
+        //static::info('Add the example gates');
+        //static::createOrReplaceFile(
+        //    app_path('Gates/ExampleGate.php'),
+        //    __DIR__ . '/../../../stubs/base/ExampleGate.php'
+        //);
     }
 
     /**

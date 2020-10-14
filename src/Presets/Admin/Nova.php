@@ -28,19 +28,19 @@ class Nova extends Preset
         ]);
 
         static::info('Run composer update and artisan commands');
-        shell_exec('composer update -q');
+        shell_exec('composer update -q -n');
         shell_exec('php artisan nova:install -q');
         shell_exec('php artisan migrate -q');
 
         static::info('Change the nova path in the configuration file');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('nova.php'),
             "'path' => '/nova'",
             "'path' => '/tools/nova'"
         );
 
         static::info('Change the nova currency in the configuration file');
-        static::replaceConfigValue(
+        static::replaceFileValue(
             config_path('nova.php'),
             "'currency' => 'USD'",
             "'currency' => 'EUR'"

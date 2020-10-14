@@ -19,7 +19,7 @@ class Sentry extends Preset
         static::info('Starts the sentry preset installation');
 
         static::info('Run composer and artisan commands');
-        shell_exec('composer require sentry/sentry-laravel -q');
+        shell_exec('composer require sentry/sentry-laravel -q -n');
 
         static::info('Change the configuration file');
         static::createOrReplaceFile(

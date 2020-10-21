@@ -2,7 +2,7 @@ const mix = require('laravel-mix');
 require('@ayctor/laravel-mix-svg-sprite');
 
 mix.js('resources/js/app.js', 'public/build')
-    .postCss('resources/sass/app.scss', 'public/build', [
+    .postCss('resources/css/app.css', 'public/build', [
         require('postcss-import'),
         require('tailwindcss'),
         require('postcss-nested'),

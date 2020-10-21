@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.1.2 - 2020-10-21
+
+### Added
+
+- Fix bug css stubs
+
 ## 1.1.1 - 2020-10-21
 
 ### Added

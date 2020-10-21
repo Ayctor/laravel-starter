@@ -18,7 +18,8 @@ class Ui extends Preset
         static::setupDependencies();
         static::setupConfig();
         static::setupSvg();
-        static::setupSass();
+        //static::setupSass();
+        static::setupCss();
         static::setupJs();
 
         static::info('The basic ui presets are installed!');
@@ -32,7 +33,7 @@ class Ui extends Preset
     protected static function setupDependencies(): void
     {
         static::info('Install the dependencies');
-        shell_exec('npm install -D --silent sass sass-loader resolve-url-loader');
+        shell_exec('npm install -D --silent postcss-import postcss-nested resolve-url-loader');
         shell_exec('npm install -D --silent svg4everybody svg-spritemap-webpack-plugin @ayctor/laravel-mix-svg-sprite@1.0.0');
         shell_exec('npm install -D --silent browser-sync browser-sync-webpack-plugin');
         shell_exec('npm install -D --silent eslint eslint-loader');
@@ -114,6 +115,24 @@ class Ui extends Preset
         static::createOrReplaceFile(
             resource_path('sass/app.scss'),
             __DIR__ . '/../../../stubs/base/app.scss'
+        );
+    }
+
+    /**
+     * Setup CSS
+     *
+     * @retun void
+     */
+    protected static function setupCss(): void
+    {
+        static::info('');
+        static::info('Ensure that the css directory exist');
+        static::ensureDirectoryExists(resource_path('css'));
+
+        static::info('Change the app.css file');
+        static::createOrReplaceFile(
+            resource_path('sass/app.css'),
+            __DIR__ . '/../../../stubs/base/app.css'
         );
     }
 

@@ -48,7 +48,23 @@ class Preset
     }
 
     /**
-     * Replace file
+     * Delete directory
+     *
+     * @param string $directoryPath
+     *
+     * @return void
+     */
+    protected static function removeDirectory(string $directoryPath): void
+    {
+        $filesystem = new Filesystem;
+
+        if ($filesystem->isDirectory($directoryPath)) {
+            $filesystem->deleteDirectory($directoryPath);
+        }
+    }
+
+    /**
+     * Replace directory
      *
      * @param string $directoryPath
      * @param string $stubPath

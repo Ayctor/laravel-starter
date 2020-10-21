@@ -27,6 +27,8 @@
 
         <link href="{{ mix('build/app.css') }}" rel="stylesheet">
 
+        @livewireStyles
+
         <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2Csmoothscroll"></script>
 
         @if(!is_null(config('gtm.id')))
@@ -57,6 +59,8 @@
         <script src="{{ mix('build/manifest.js') }}" defer></script>
         <script src="{{ mix('build/vendor.js') }}" defer></script>
         <script src="{{ mix('build/app.js') }}" defer></script>
+
+        @livewireScripts
 
         @stack('scripts')
     </body>

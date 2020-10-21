@@ -2,6 +2,20 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.1.0 - 2020-10-19
+
+### Added
+
+- Add Livewire preset
+- Add Inertia preset
+- Add mix.extract() in webpack config
+- Add purge settings in tailwind config
+- Add postcss in webpack mix
+
+### Removed
+
+- Remove sass from webpack mix
+
 ## 1.0.8 - 2020-10-14
 
 ### Added
@@ -9,8 +23,11 @@ All notable changes to `LaravelStarter` will be documented in this file.
 - Fix horizon in require and not in require dev
 - Add UtmMiddleware
 - Add -n option on composer install command (no-interaction)
-- Remove example models, factories, etc.
 - Add opcache route in web.php
+
+### Removed
+
+- Remove example models, factories, etc.
 
 ## 1.0.7 - 2020-10-13
 

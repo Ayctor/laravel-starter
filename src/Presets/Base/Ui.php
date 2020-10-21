@@ -131,7 +131,7 @@ class Ui extends Preset
 
         static::info('Change the app.css file');
         static::createOrReplaceFile(
-            resource_path('sass/app.css'),
+            resource_path('css/app.css'),
             __DIR__ . '/../../../stubs/base/app.css'
         );
     }

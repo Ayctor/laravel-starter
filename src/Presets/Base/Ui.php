@@ -33,11 +33,11 @@ class Ui extends Preset
     protected static function setupDependencies(): void
     {
         static::info('Install the dependencies');
-        shell_exec('npm install -D --silent postcss-import postcss-nested resolve-url-loader');
+        shell_exec('npm install -D --silent glob-all postcss-import@~12.0.0 postcss-nested@~4.2.0 autoprefixer resolve-url-loader');
         shell_exec('npm install -D --silent svg4everybody svg-spritemap-webpack-plugin @ayctor/laravel-mix-svg-sprite@1.0.0');
         shell_exec('npm install -D --silent browser-sync browser-sync-webpack-plugin');
         shell_exec('npm install -D --silent eslint eslint-loader');
-        shell_exec('npm install -D --silent tailwindcss');
+        shell_exec('npm install -D --silent tailwindcss laravel-mix-purgecss');
         shell_exec('npm install -D --silent aos in-viewport'); // TODO: check parsley
     }
 

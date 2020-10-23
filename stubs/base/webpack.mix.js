@@ -1,11 +1,14 @@
 const mix = require('laravel-mix');
+const glob = require('glob-all');
+
 require('@ayctor/laravel-mix-svg-sprite');
+require('laravel-mix-purgecss');
 
 mix.js('resources/js/app.js', 'public/build')
     .postCss('resources/css/app.css', 'public/build', [
         require('postcss-import'),
-        require('tailwindcss'),
         require('postcss-nested'),
+        require('tailwindcss'),
     ])
     .svgSprite('resources/svg/*.svg', {
         output: {
@@ -24,9 +27,14 @@ mix.js('resources/js/app.js', 'public/build')
             }
         },
     })
-    .options({
-        processCssUrls: false,
-        purifyCss: process.NODE_ENV === 'production',
+    .purgeCss({
+        whitelist: [],
+        paths: glob.sync([
+            path.join(__dirname, 'storage/framework/views/*.php'),
+            path.join(__dirname, 'resources/views/**/*.blade.php'),
+            path.join(__dirname, 'resources/js/**/*.js'),
+            path.join(__dirname, 'resources/js/**/*.vue'),
+        ])
     })
     .webpackConfig({
         module: {

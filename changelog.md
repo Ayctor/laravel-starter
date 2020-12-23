@@ -2,6 +2,14 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.1.4 - 2020-12-23
+
+### Added
+
+- Fix deployer
+- Fix sentry js
+- other small changes
+
 ## 1.1.2 - 2020-10-21
 
 ### Added

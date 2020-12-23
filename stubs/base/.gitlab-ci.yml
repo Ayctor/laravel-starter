@@ -1,36 +1,139 @@
-image: thecodingmachine/php:7.4-v3-cli-node12
+stages:
+  - preparation
+  - building
+  - testing
+  - security
 
-pipelines:
-  default:
-    - step:
-        caches:
-          - node
-          - npm
-          - composer
-        script:
-          - PHP_EXTENSIONS="exif gd imagick intl sqlite3 pdo_sqlite"
-          - sudo apt-get update && sudo apt-get install -y mysql-client
-          - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_PASSWORD}
-          - composer install
-          - npm ci
-          - npm run dev
-          - ln -f -s .env.pipelines .env
-          - php artisan key:generate
-          - php artisan migrate
-          - php artisan serve &
-          - sleep 5
-          - ./vendor/bin/phpunit --log-junit ./test-reports/junit.xml
-        services:
-          - mysql
+image: lorisleiva/laravel-docker:7.4
 
-definitions:
-  caches:
-    npm: $HOME/.npm
+variables:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_USER: pipelines
+  MYSQL_PASSWORD: pipelines
+  MYSQL_DATABASE: pipelines
+  DB_HOST: mysql
+  DB_USERNAME: pipelines
+
+cache:
+  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+
+composer:
+  stage: preparation
+  script:
+    - php -v
+    - COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - cp .env.testing .env
+    - php artisan key:generate
+  artifacts:
+    paths:
+      - vendor/
+      - .env
+    expire_in: 1 days
+    when: always
+  cache:
+    paths:
+      - vendor/
+
+npm:
+  stage: preparation
+  script:
+    - npm --version
+    - npm ci --no-progress
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 days
+    when: always
+  cache:
+    paths:
+      - node_modules/
+
+build-assets:
+  stage: building
+  dependencies:
+    - composer
+    - npm
+  script:
+    - npm --version
+    - npm run prod --no-progress
+  artifacts:
+    paths:
+      - public/build/
+      - public/mix-manifest.json
+    expire_in: 1 days
+    when: always
+
+db-seeding:
+  stage: building
   services:
-    mysql:
-      image: mysql:5.7
-      environment:
-        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-        MYSQL_DATABASE: 'pipelines'
-        MYSQL_USER: 'pipelines'
-        MYSQL_PASSWORD: 'pipelines'
+    - name: mysql:8.0
+      command: ["--default-authentication-plugin=mysql_native_password"]
+  dependencies:
+    - composer
+    - npm
+  script:
+    - mysql --version
+    - php artisan migrate:fresh
+  artifacts:
+    paths:
+      - storage/logs
+    expire_in: 1 days
+    when: always
+
+phpunit:
+  stage: testing
+  services:
+    - name: mysql:8.0
+      command: ["--default-authentication-plugin=mysql_native_password"]
+  dependencies:
+    - build-assets
+    - composer
+    - db-seeding
+  script:
+    - php -v
+    - mkdir tests/Unit
+    - ./vendor/phpunit/phpunit/phpunit --version
+    - php artisan test
+  artifacts:
+    paths:
+      - ./storage/logs
+    expire_in: 1 days
+    when: on_failure
+
+phpcs:
+  stage: testing
+  dependencies:
+    - composer
+  script:
+    - phpcs --standard=PSR2 --extensions=php app
+
+larastan:
+  stage: testing
+  dependencies:
+    - composer
+  script:
+    - ./vendor/bin/phpstan analyse --memory-limit=2G
+
+phpcpd:
+  stage: testing
+  dependencies:
+    - composer
+  script:
+    - test -f phpcpd.phar || curl -L https://phar.phpunit.de/phpcpd.phar -o phpcpd.phar
+    - php phpcpd.phar app/ --min-lines=50
+  cache:
+    paths:
+      - phpcpd.phar
+
+security-checker:
+  stage: security
+  dependencies:
+    - composer
+  script:
+    - test -d security-checker || git clone https://github.com/sensiolabs/security-checker.git
+    - cd security-checker
+    - COMPOSER_MEMORY_LIMIT=-1 composer install
+    - php security-checker security:check ../composer.lock
+  cache:
+    paths:
+      - security-checker/

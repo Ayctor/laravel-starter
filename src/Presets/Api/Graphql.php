@@ -18,6 +18,7 @@ class Graphql extends Preset
 
         static::info('Run composer and artisan commands');
         shell_exec('composer require nuwave/lighthouse -q -n');
+        shell_exec('composer require mll-lab/graphql-php-scalars -q -n');
         shell_exec('composer require mll-lab/laravel-graphql-playground -q -n');
         shell_exec('php artisan vendor:publish --tag=lighthouse-schema -q');
         shell_exec('php artisan lighthouse:ide-helper -q');

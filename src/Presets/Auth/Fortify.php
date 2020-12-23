@@ -35,5 +35,17 @@ class Fortify extends Preset
             resource_path('views/auth'),
             __DIR__ . '/../../../stubs/base/auth/fortify/auth'
         );
+
+        static::info('Register the provider');
+        static::replaceFileValue(
+            config_path('app.php'),
+            "/*
+         * Package Service Providers...
+         */",
+            "/*
+         * Package Service Providers...
+         */
+        App\Providers\FortifyServiceProvider::class,"
+        );
     }
 }

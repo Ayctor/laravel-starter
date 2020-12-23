@@ -15,6 +15,8 @@ class Base extends Preset
     {
         static::info('Starts the basic presets installation');
 
+        static::setupDependencies();
+        static::setupDeployer();
         static::setupReadme();
         static::setupRoutes();
         static::setupMiddlewares();
@@ -36,6 +38,26 @@ class Base extends Preset
         Ui::install();
 
         static::info('The basic presets are installed!');
+    }
+
+    protected static function setupDependencies(): void
+    {
+        static::info('Install the dependencies');
+        shell_exec('composer doctrine/dbal --dev -q -n');
+    }
+
+    /**
+     * Setup deployer
+     *
+     * @return void
+     */
+    protected static function setupDeployer(): void
+    {
+        static::info('Add the deployer file');
+        static::createOrReplaceFile(
+            base_path('deploy.php'),
+            __DIR__ . '/../../../stubs/base/deploy.php'
+        );
     }
 
     /**
@@ -118,7 +140,7 @@ class Base extends Preset
         static::info('Add french translation files');
         static::createOrReplaceDirectory(
             resource_path('lang/fr'),
-            __DIR__ . '../../stubs/base/fr'
+            __DIR__ . '../../stubs/base/fr' // TODO: fix import stubs
         );
     }
 

@@ -39,6 +39,16 @@
             <!-- End Google Tag Manager -->
         @endif
 
+        @auth
+            <script>
+                window.sentry = {
+                    dsn: '{{ config('sentry.dsn') }}',
+                    environment: '{{ config('app.env') }}',
+                    release: '{{ config('sentry.release') }}',
+                };
+            </script>
+        @endauth
+
         @stack('head')
     </head>
     <body class="antialiased font-sans">

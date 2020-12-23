@@ -5,9 +5,9 @@ return [
     'dsn' => env('SENTRY_DSN'),
 
     // Capture release as git latest tag
-    'release' => env('APP_ENV') === 'production'
+    'release' => env('APP_ENV') !== 'testing'
         ? trim(exec('git describe --abbrev=0'))
-        : trim(exec('git --git-dir ' . base_path('.git') . ' log --pretty="%h" -n1 HEAD')),
+        : '',
 
     'breadcrumbs' => [
         // Capture Laravel logs in breadcrumbs
@@ -27,6 +27,6 @@ return [
     ],
 
     // @see: https://docs.sentry.io/error-reporting/configuration/?platform=php#send-default-pii
-    'send_default_pii' => false,
+    'send_default_pii' => true,
 
 ];

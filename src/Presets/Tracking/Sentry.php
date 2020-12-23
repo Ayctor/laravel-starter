@@ -20,6 +20,7 @@ class Sentry extends Preset
 
         static::info('Run composer and artisan commands');
         shell_exec('composer require sentry/sentry-laravel -q -n');
+        shell_exec('npm install -D --silent @sentry/browser @sentry/tracing @sentry/integrations');
 
         static::info('Change the configuration file');
         static::createOrReplaceFile(
@@ -45,6 +46,22 @@ class Sentry extends Preset
             __DIR__ . '/../../../stubs/tracking/sentry/.env.example'
         );
 
-        // TODO: add sentry js
+        static::info('Add the layouts directory with the default layout');
+        static::createOrReplaceDirectory(
+            resource_path('views/layouts'),
+            __DIR__ . '/../../../stubs/tracking/sentry/layouts'
+        );
+
+        static::info('Add sentry js file');
+        static::appendFile(
+            resource_path('js/sentry.js'),
+            __DIR__ . '/../../../stubs/tracking/sentry/sentry.js'
+        );
+
+        static::info('Add requires into the app.js file');
+        static::appendFile(
+            resource_path('js/app.js'),
+            __DIR__ . '/../../../stubs/tracking/sentry/app.js'
+        );
     }
 }

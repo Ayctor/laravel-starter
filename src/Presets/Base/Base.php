@@ -3,6 +3,7 @@
 namespace Ayctor\LaravelStarter\Presets\Base;
 
 use Ayctor\LaravelStarter\Presets\Preset;
+use Ayctor\LaravelStarter\Presets\Base\DbDumper;
 
 class Base extends Preset
 {
@@ -36,6 +37,7 @@ class Base extends Preset
         Larastan::install();
         Phpcs::install();
         Ui::install();
+        DbDumper::install();
 
         static::info('The basic presets are installed!');
     }

@@ -2,6 +2,12 @@
 
 All notable changes to `LaravelStarter` will be documented in this file.
 
+## 1.2.0 - 2021-03-05
+
+### Added
+
+- Add Db dumper command
+
 ## 1.1.4 - 2020-12-23
 
 ### Added
